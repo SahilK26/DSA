@@ -1,22 +1,12 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        int first = 0, second = 0;
+        string s = to_string(n);
+        sort(s.begin(), s.end());
 
-        while (n > 0) {
-            int digit = n % 10;
+        int a = s[s.size() - 1] - '0';
+        int b = s[s.size() - 2] - '0';
 
-            if (digit > first) {
-                second = first;
-                first = digit;
-            } 
-            else if (digit > second) {
-                second = digit;
-            }
-
-            n /= 10;
-        }
-
-        return first * second;
+        return a * b;
     }
 };
