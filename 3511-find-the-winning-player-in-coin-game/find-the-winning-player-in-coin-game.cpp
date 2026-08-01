@@ -1,20 +1,10 @@
 class Solution {
 public:
     string winningPlayer(int x, int y) {
+        int moves = min(x, y / 4);
 
-        bool AliceTurn = true;
-        int i=x;
-        int j=y;
-        while(i>0 && j>=4){
-            if(i>=1 && j>=4){
-                i -= 1;
-                j -=4;
-            }
-            else break;
-            cout << i  << j;
-            AliceTurn = !AliceTurn;
-        }
-        if(!AliceTurn) return "Alice";
+        if (moves % 2 == 1)
+            return "Alice";
         return "Bob";
     }
 };
