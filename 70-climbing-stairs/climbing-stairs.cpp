@@ -1,18 +1,16 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        if (n <= 2) return n;
-        
-        int first = 1;  // Ways to reach step 1
-        int second = 2; // Ways to reach step 2
-        
-        for (int i = 3; i <= n; i++) {
-            int third = first + second;
-            // Shift values for the next iteration
-            first = second;
-            second = third;
-        }
-        
-        return second;
+        if(n==1) return 1;
+        if(n==2) return 2;
+        int one_back=2;
+        int two_back =1;
+       for(int i=2;i<n;i++){
+            int next = one_back + two_back;
+            two_back = one_back;
+            one_back = next;
+       }
+
+       return one_back;
     }
 };
